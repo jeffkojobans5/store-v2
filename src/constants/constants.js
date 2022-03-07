@@ -19,25 +19,25 @@ const social_media = [
     },    
 ]
 
-const navbar_links = [
+export const navbar_links = [
     {
         id : 1,
-        name : 'home',
+        name : 'Home',
         link : '/'
     },
     {
         id : 2,
-        name : 'about',
+        name : 'About',
         link : '/'
     },    
     {
         id : 3,
-        name : 'shop',
+        name : 'Shop',
         link : '/'
     },       
     {
         id : 4,
-        name : 'contact',
+        name : 'Contact',
         link : '/'
     },       
 ]
