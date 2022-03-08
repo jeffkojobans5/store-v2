@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import { Header } from '../components/index'
+import { Header , HomepageBanner } from '../components/index'
 
 function Homepage () {
     return (
-        <Header />
+        <>
+            <Header />
+            <HomepageBanner />
+        </>
     )
 }
 
