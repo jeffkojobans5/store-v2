@@ -5,7 +5,12 @@ function HomepageBanner () {
     return (
         <Wrapper>
             <div className="container">
-                <h1> I am the banner </h1>
+                <section>
+                    <h1> Buy from the best</h1>
+                </section>
+                <section>
+                    <h1> your image here </h1>
+                </section>
             </div>
         </Wrapper>
     )
@@ -13,7 +18,16 @@ function HomepageBanner () {
 
 const Wrapper = styled.div`
     .container {
-        background-color: green;
+        background-color: whtiesmoke;
+        display: flex;
+        justify-content: center;
+        min-height: 90vh;
+    }
+    section{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 
