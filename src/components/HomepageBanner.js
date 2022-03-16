@@ -23,6 +23,7 @@ const Wrapper = styled.div`
         justify-content: center;
         min-height: 90vh;
     }
+        
     section{
         flex: 1;
         display: flex;
