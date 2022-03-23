@@ -24,7 +24,6 @@ function HomepageBanner () {
 
 const Wrapper = styled.div`
     .container {
-        ${'' /* background-color: whtiesmoke; */}
         display: flex;
         justify-content: center;
         min-height: 90vh;
