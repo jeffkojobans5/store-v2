@@ -1,6 +1,29 @@
+import { useEffect } from 'react'
+import { useSelector , useDispatch } from 'react-redux';
+import axios from 'axios';
+import { products_url } from '../constants/constants';
+import { GET_FEATURED_PRODUCTS } from '../redux/actions/actions'
 import styled from 'styled-components'
 
+
 function FeaturedProducts () {
+    const dispatch = useDispatch();
+    const featuredProducts = useSelector((state)=>state.featuredProducts)
+    console.log(featuredProducts);
+    
+    function fetchProducts () {
+        axios.get(products_url).then((response)=>{
+            dispatch({ type : GET_FEATURED_PRODUCTS , payload : response.data})
+        }).catch((error)=>{
+            console.log(error.data)
+        })   
+    }
+    
+    useEffect(()=>{
+        fetchProducts()
+    },[])
+    
+    
     return (
         <Wrapper>
             <h1> Featured Products</h1>
@@ -40,6 +63,8 @@ function FeaturedProducts () {
                     </div>
                 </section>
             </div>
+
+            
         </Wrapper>    
     )
 }
