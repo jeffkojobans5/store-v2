@@ -1,22 +1,28 @@
-import { INCREASE , GET_FEATURED_PRODUCTS} from '../actions/actions'
-import { createStore } from 'redux';
+import { 
+    GET_PRODUCTS_SUCCESS, 
+    GET_FEATURED_PRODUCTS, 
+    GET_PRODUCTS_BEGIN    
+} 
+from '../actions/actions'
+import { createStore } from 'redux'
 
-let counter = {
-    featuredProducts : [],
-    gender : 'male'
+let data = {
+    featured_products : [],
+    products: [],
+    products_loading : false,
+    products_error : false,
 }
 
-
-function productReducer ( state = counter , { type , payload}) {
-    if(type == INCREASE) {
-        return { ...state , number : state.number + 2  }
+function productReducer ( state = data , action ) {
+    if(action.type == GET_PRODUCTS_BEGIN ) {
+        return { ...state , products_loading : true}
     }
-    if(type == GET_FEATURED_PRODUCTS) {
-        return { ...state , featuredProducts : payload }
+    
+    if(action.type == GET_PRODUCTS_SUCCESS ) {
+        return { ...state , featured_products : action.payload , products_loading : false }
     }
 
-    return state
+    return state;
 }
 
 export const store = createStore(productReducer)
-

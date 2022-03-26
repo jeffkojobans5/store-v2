@@ -2,21 +2,23 @@ import { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux';
 import axios from 'axios';
 import { products_url } from '../constants/constants';
-import { GET_FEATURED_PRODUCTS } from '../redux/actions/actions'
+import { GET_PRODUCTS_SUCCESS , GET_PRODUCTS_BEGIN } from '../redux/actions/actions'
 import styled from 'styled-components'
-
+import FeaturedProductsBox from './FeaturedProductsBox'
 
 function FeaturedProducts () {
     const dispatch = useDispatch();
-    const featuredProducts = useSelector((state)=>state.featuredProducts)
-    console.log(featuredProducts);
-    
+    const products_loading = useSelector((state)=>state.products_loading)
+    const featuredProd = useSelector((state)=>state.featured_products)
+    console.log(featuredProd)
+
     function fetchProducts () {
+        dispatch({ type : GET_PRODUCTS_BEGIN })
         axios.get(products_url).then((response)=>{
-            dispatch({ type : GET_FEATURED_PRODUCTS , payload : response.data})
+            dispatch({ type : GET_PRODUCTS_SUCCESS , payload : response.data.slice(0,5)})
         }).catch((error)=>{
-            console.log(error.data)
-        })   
+            console.log(error)
+        })
     }
     
     useEffect(()=>{
@@ -24,47 +26,35 @@ function FeaturedProducts () {
     },[])
     
     
+
     return (
         <Wrapper>
             <h1> Featured Products</h1>
             <p className="heading-p"> WoodMart is a powerful eCommerce theme for WordPress. </p>
             <div className="container">
-                <section className="featured">
-                    {/* <div className="product"> */}                    
-                        <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" alt="" />
-                        <p> Hello </p>   <br/>                     
-                        <small> price </small>                     
-                    {/* </div> */}
-                </section>
-                <section>
-                    <div className="product">
-                        <div className="featured">
-                            <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" alt="" />     
-                            <p> Hello </p>   <br/>                     
-                            <small> price </small>
-                        </div>
-                        <div className="featured">
-                            <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" alt="" />                            
-                            <p> Hello </p>   <br/>                     
-                            <small> price </small>                          
-                        </div>
-                    </div>
-                    <div className="product">
-                        <div className="featured">
-                            <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" alt="" />                            
-                            <p> Hello </p>   <br/>                     
-                            <small> price </small>                       
-                        </div>
-                        <div className="featured">
-                            <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" alt="" />                            
-                            <p> Hello </p>   <br/>                     
-                            <small> price </small>                     
-                        </div>
-                    </div>
-                </section>
-            </div>
+                    { products_loading.length > 1 ?  <h1> True </h1> : "" }
+                    { featuredProd.length > 1  ? 
+                    <section className="featured">
+                            <img src={ featuredProd[0]['image'] } />
+                            <p> { featuredProd[0]['name'] }</p><br/>                     
+                            <small> { featuredProd[0]['price'] } </small>                     
+                    </section>
+                    : " "}
 
-            
+                    { featuredProd.length > 1  ? 
+                    <section> 
+                        <div className="product">
+                            <FeaturedProductsBox image = { featuredProd[1]['image']} price = { featuredProd[1]['price']} name = { featuredProd[1]['name']}/>
+                            <FeaturedProductsBox image = { featuredProd[2]['image']} price = { featuredProd[2]['price']} name = { featuredProd[2]['name']}/>
+                        </div>
+                        <div className="product">
+                            <FeaturedProductsBox image = { featuredProd[3]['image']} price = { featuredProd[3]['price']} name = { featuredProd[3]['name']}/>
+                            <FeaturedProductsBox image = { featuredProd[4]['image']} price = { featuredProd[4]['price']} name = { featuredProd[4]['name']}/>
+                        </div>
+                    </section>
+                    : " "}
+
+            </div>
         </Wrapper>    
     )
 }
@@ -102,17 +92,19 @@ const Wrapper = styled.div`
         position: relative;
         overflow: hidden;
         cursor: pointer;
-        ${'' /* margin: 1rem; */}
         background-color: #F8F8F8;
         border: 5px solid white;
     }
 
     .featured img {
         transition: 0.5s all;
+        object-fit: cover;
+        height: 100%;
+        max-width: 100%;        
     }
 
     .featured:hover p {
-        transform: translateY(-30px)
+        transform: translateY(-40px)
     }
 
     .featured:hover small {
@@ -136,7 +128,7 @@ const Wrapper = styled.div`
         padding: 1rem;
         z-index: 20;
         transition: 0.5s all;
-        
+        background-color: white;
     }
 
     small {
@@ -144,9 +136,10 @@ const Wrapper = styled.div`
         bottom: 0px;
         padding: 1rem;        
         transform: translateY(50px);
-        transition: 0.5s all;        
+        transition: 0.5s all;     
+        color: brown;
+        background-color: white;   
+        z-index: 100;
     }
-
-
 `
 export default FeaturedProducts
