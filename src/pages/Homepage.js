@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Header , HomepageBanner , FeaturedProducts} from '../components/index'
+import { Header , HomepageBanner , FeaturedProducts , About} from '../components/index'
 
 function Homepage () {
     return (
@@ -7,6 +7,7 @@ function Homepage () {
             <Header />
             <HomepageBanner />
             <FeaturedProducts />
+            <About />
         </>
     )
 }

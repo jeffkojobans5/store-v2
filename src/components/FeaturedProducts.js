@@ -53,13 +53,13 @@ function FeaturedProducts () {
                         </div>
                     </section>
                     : " "}
-
             </div>
         </Wrapper>    
     )
 }
 
 const Wrapper = styled.div`
+    margin-bottom: 3rem;
     .container {
         display: flex;
         margin-top: 3rem;
