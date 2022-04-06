@@ -10,7 +10,7 @@ function NewsletterEmail () {
                 </section>
                 <section>
                     <input type="text" />
-                    <button class="signup"> Sign Up </button>
+                    <button className="signup"> Sign Up </button>
                 </section>
             </div>
         </Wrapper>

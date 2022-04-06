@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Banner from '../media/banner.png'
+import Banner from '../../media/banner.png'
 
 function HomepageBanner () {
 

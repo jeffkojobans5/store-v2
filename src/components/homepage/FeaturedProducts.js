@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux';
 import axios from 'axios';
-import { products_url } from '../constants/constants';
-import { GET_PRODUCTS_SUCCESS , GET_PRODUCTS_BEGIN } from '../redux/actions/actions'
+import { products_url } from '../../constants/constants';
+import { GET_PRODUCTS_SUCCESS , GET_PRODUCTS_BEGIN } from '../../redux/actions/actions'
 import styled from 'styled-components'
 import FeaturedProductsBox from './FeaturedProductsBox'
+import Loading from '../../media/loading.gif'
 
 function FeaturedProducts () {
     const dispatch = useDispatch();
@@ -24,35 +25,37 @@ function FeaturedProducts () {
     useEffect(()=>{
         fetchProducts()
     },[])
-    
-    
 
     return (
         <Wrapper>
             <h1> Featured Products</h1>
             <p className="heading-p"> WoodMart is a powerful eCommerce theme for WordPress. </p>
             <div className="container">
-                    { products_loading.length > 1 ?  <h1> True </h1> : "" }
-                    { featuredProd.length > 1  ? 
-                    <section className="featured">
-                            <img src={ featuredProd[0]['image'] } />
-                            <p> { featuredProd[0]['name'] }</p><br/>                     
-                            <small> { featuredProd[0]['price'] } </small>                     
-                    </section>
-                    : " "}
+                    { products_loading ? <img src={ Loading } className="loading" alt="loading..." />
+  :
+                    <>
+                        { featuredProd.length > 1  ? 
+                        <section className="featured">
+                                <img src={ featuredProd[0]['image'] } />
+                                <p> { featuredProd[0]['name'] }</p><br/>                     
+                                <small> { featuredProd[0]['price'] } </small>                     
+                        </section>
+                        : " "}
 
-                    { featuredProd.length > 1  ? 
-                    <section> 
-                        <div className="product">
-                            <FeaturedProductsBox image = { featuredProd[1]['image']} price = { featuredProd[1]['price']} name = { featuredProd[1]['name']}/>
-                            <FeaturedProductsBox image = { featuredProd[2]['image']} price = { featuredProd[2]['price']} name = { featuredProd[2]['name']}/>
-                        </div>
-                        <div className="product">
-                            <FeaturedProductsBox image = { featuredProd[3]['image']} price = { featuredProd[3]['price']} name = { featuredProd[3]['name']}/>
-                            <FeaturedProductsBox image = { featuredProd[4]['image']} price = { featuredProd[4]['price']} name = { featuredProd[4]['name']}/>
-                        </div>
-                    </section>
-                    : " "}
+                        { featuredProd.length > 1  ? 
+                        <section> 
+                            <div className="product">
+                                <FeaturedProductsBox image = { featuredProd[1]['image']} price = { featuredProd[1]['price']} name = { featuredProd[1]['name']}/>
+                                <FeaturedProductsBox image = { featuredProd[2]['image']} price = { featuredProd[2]['price']} name = { featuredProd[2]['name']}/>
+                            </div>
+                            <div className="product">
+                                <FeaturedProductsBox image = { featuredProd[3]['image']} price = { featuredProd[3]['price']} name = { featuredProd[3]['name']}/>
+                                <FeaturedProductsBox image = { featuredProd[4]['image']} price = { featuredProd[4]['price']} name = { featuredProd[4]['name']}/>
+                            </div>
+                        </section>
+                        : " "}
+                    </>                    
+                    }                    
             </div>
         </Wrapper>    
     )
@@ -140,6 +143,12 @@ const Wrapper = styled.div`
         color: brown;
         background-color: white;   
         z-index: 100;
+    }
+
+    .loading{
+        text-align: center;
+        display: block;
+        margin: 0 auto;
     }
 `
 export default FeaturedProducts

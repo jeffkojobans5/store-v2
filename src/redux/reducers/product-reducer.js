@@ -1,6 +1,5 @@
 import { 
     GET_PRODUCTS_SUCCESS, 
-    GET_FEATURED_PRODUCTS, 
     GET_PRODUCTS_BEGIN    
 } 
 from '../actions/actions'

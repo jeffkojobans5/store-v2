@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { AboutBox } from './index'
+import { AboutBox } from '../index'
 import { IoNavigateCircleSharp } from 'react-icons/io'
 
 function About () {
