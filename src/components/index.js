@@ -5,5 +5,6 @@ import About from './homepage/About'
 import AboutBox from './homepage/AboutBox'
 import NewsletterEmail from './homepage/NewsletterEmail'
 import Footer from './Footer'
+import Banner from './Shop/Banner'
 
-export { Header , HomepageBanner , FeaturedProducts ,  About , AboutBox , NewsletterEmail , Footer }
+export { Header , HomepageBanner , FeaturedProducts ,  About , AboutBox , NewsletterEmail , Footer , Banner }
