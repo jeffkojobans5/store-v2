@@ -15,7 +15,7 @@ function Header () {
                         <ul>
                             { navbar_links.map((item)=>{
                                 return (
-                                    <li key={item.id}> <Link to=""> {item.name} </Link> </li>  
+                                    <li key={item.id}>  <Link to= { item.link } > {item.name} </Link> </li>  
                                 )
                             }) }
                         </ul>

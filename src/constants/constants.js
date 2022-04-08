@@ -33,7 +33,7 @@ export const navbar_links = [
     {
         id : 3,
         name : 'Shop',
-        link : '/'
+        link : '/shop'
     },       
     {
         id : 4,
