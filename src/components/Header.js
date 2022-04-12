@@ -1,7 +1,7 @@
 import { useState , useContext } from 'react';
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import {navbar_links} from '../constants/constants'
+import {navbar_links} from '../helpers/constants/constants'
 import Logo from '../media/logo.svg'
 import {AiFillHeart} from 'react-icons/ai'
 import {RiShoppingCartLine} from 'react-icons/ri'

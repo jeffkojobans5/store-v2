@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux';
 import axios from 'axios';
-import { products_url } from '../../constants/constants';
+import { products_url } from '../../helpers/constants/constants';
 import { GET_PRODUCTS_SUCCESS , GET_PRODUCTS_BEGIN } from '../../redux/actions/actions'
 import styled from 'styled-components'
 import FeaturedProductsBox from './FeaturedProductsBox'
@@ -11,7 +11,6 @@ function FeaturedProducts () {
     const dispatch = useDispatch();
     const products_loading = useSelector((state)=>state.products_loading)
     const featuredProd = useSelector((state)=>state.featured_products)
-    console.log(featuredProd)
 
     function fetchProducts () {
         dispatch({ type : GET_PRODUCTS_BEGIN })

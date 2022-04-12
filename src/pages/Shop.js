@@ -7,7 +7,7 @@ function Shop () {
         <Wrapper>
             <Header />
             <Banner />
-            <section>
+            <section className="shop-section">
                 <div className="products container">
                     <Filter />
                     <ProductsList />
@@ -25,6 +25,10 @@ const Wrapper = styled.div`
         display: flex;
         justify-content:center;
         align-items:center;
+    }
+
+    .shop-section {
+        margin-bottom: 5rem;
     }
     
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Category , ClearFilter , Colors , Company , FreeShipping , InputRange , Search } from '../index'
+import { Category , ClearFilter , Colors , Company , FreeShipping , Price , Search } from '../index'
 
 function Filter () {
     return (
@@ -9,6 +9,9 @@ function Filter () {
                 <Category />
                 <Company />
                 <Colors />
+                <Price />
+                <FreeShipping />
+                <ClearFilter />
             </div>
         </Wrapper>            
     )
@@ -20,6 +23,9 @@ const Wrapper = styled.div`
     ${'' /* background-color: brown; */}
     flex: 3;
 
+    position: sticky;
+    top: 10px;
+    
     .filter {
         flex: 3;
     }

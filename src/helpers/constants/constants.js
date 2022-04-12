@@ -28,7 +28,7 @@ export const navbar_links = [
     {
         id : 2,
         name : 'About',
-        link : '/'
+        link : '/about'
     },    
     {
         id : 3,
@@ -38,7 +38,7 @@ export const navbar_links = [
     {
         id : 4,
         name : 'Contact',
-        link : '/'
+        link : '/contact'
     },       
 ]
 

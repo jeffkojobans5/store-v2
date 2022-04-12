@@ -17,7 +17,7 @@ import { ClearFilter } from './Shop/Filters/ClearFilter'
 import { Colors } from './Shop/Filters/Colors'
 import { Company } from './Shop/Filters/Company'
 import { FreeShipping } from './Shop/Filters/FreeShipping'
-import { InputRange } from './Shop/Filters/InputRange'
+import { Price } from './Shop/Filters/Price'
 
 export { 
     Header , 
@@ -36,5 +36,5 @@ export {
     Colors,
     Company,
     FreeShipping,
-    InputRange
+    Price
 }

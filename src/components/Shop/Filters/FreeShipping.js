@@ -4,14 +4,18 @@ export function FreeShipping () {
     return (
     
     <Wrapper>
-        <input 
-            type="check"
-            placeholder="Search"            
-        />
+        <p className="filter-header-text">  </p>
+            <label htmlFor="">Free Shipping</label>
+                <input 
+                    type="checkbox"
+                    name="shipping"           
+                />
     </Wrapper>        
     )
 }
 
 const Wrapper = styled.div`
-
+    label {
+        margin-right: 0.5rem;
+    }
 `
