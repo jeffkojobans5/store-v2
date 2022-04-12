@@ -6,6 +6,9 @@ function Filter () {
         <Wrapper>
             <div className="filter">
                 <Search />
+                <Category />
+                <Company />
+                <Colors />
             </div>
         </Wrapper>            
     )
@@ -14,7 +17,7 @@ function Filter () {
 export default Filter 
 
 const Wrapper = styled.div`
-    background-color: brown;
+    ${'' /* background-color: brown; */}
     flex: 3;
 
     .filter {

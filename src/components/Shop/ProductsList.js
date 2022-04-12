@@ -13,7 +13,7 @@ function ProductsList () {
 export default ProductsList 
 
 const Wrapper = styled.div`
-    background-color: indigo;
+    ${'' /* background-color: indigo; */}
     flex: 9;
 
     .ProductsList {
