@@ -1,10 +1,28 @@
 import styled from 'styled-components'
+import { Views , GridProductList } from '../index'
 
 function ProductsList () {
     return (
         <Wrapper>
             <div className="ProductsList">
-                <h1> hello</h1>
+                <Views />
+                <section>
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                    <GridProductList />
+                </section>
             </div>
         </Wrapper>            
     )
@@ -13,11 +31,16 @@ function ProductsList () {
 export default ProductsList 
 
 const Wrapper = styled.div`
-    ${'' /* background-color: indigo; */}
     flex: 9;
 
     .ProductsList {
         flex: 12;
+    }
+
+    section {
+        display: flex;   
+        justify-content: space-between;
+        flex-wrap : wrap     
     }
 
 `

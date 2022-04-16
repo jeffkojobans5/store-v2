@@ -18,6 +18,11 @@ import { Colors } from './Shop/Filters/Colors'
 import { Company } from './Shop/Filters/Company'
 import { FreeShipping } from './Shop/Filters/FreeShipping'
 import { Price } from './Shop/Filters/Price'
+import { Views } from './Shop/Views'
+
+
+import  GridProductList  from './Shop/GridProductList/GridProductList'
+
 
 export { 
     Header , 
@@ -36,5 +41,7 @@ export {
     Colors,
     Company,
     FreeShipping,
-    Price
+    Price,
+    Views,
+    GridProductList 
 }

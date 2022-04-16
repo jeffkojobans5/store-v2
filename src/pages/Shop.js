@@ -19,12 +19,10 @@ function Shop () {
 
 
 const Wrapper = styled.div`
-    ${'' /* background-color: pink; */}
     .products {
         padding-top: 2rem;
         display: flex;
         justify-content:center;
-        align-items:center;
     }
 
     .shop-section {
