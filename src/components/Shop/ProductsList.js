@@ -8,20 +8,6 @@ function ProductsList () {
                 <Views />
                 <section>
                     <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
-                    <GridProductList />
                 </section>
             </div>
         </Wrapper>            

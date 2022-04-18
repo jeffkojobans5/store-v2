@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux';
 import axios from 'axios';
 import { products_url } from '../../helpers/constants/constants';
-import { GET_PRODUCTS_SUCCESS , GET_PRODUCTS_BEGIN } from '../../redux/actions/actions'
+import { GET_FEATURED_PRODUCTS_SUCCESS , GET_FEATURED_PRODUCTS_BEGIN } from '../../redux/actions/actions'
 import styled from 'styled-components'
 import FeaturedProductsBox from './FeaturedProductsBox'
 import Loading from '../../media/loading.gif'
@@ -13,9 +13,9 @@ function FeaturedProducts () {
     const featuredProd = useSelector((state)=>state.featured_products)
 
     function fetchProducts () {
-        dispatch({ type : GET_PRODUCTS_BEGIN })
+        dispatch({ type : GET_FEATURED_PRODUCTS_BEGIN })
         axios.get(products_url).then((response)=>{
-            dispatch({ type : GET_PRODUCTS_SUCCESS , payload : response.data.slice(0,5)})
+            dispatch({ type : GET_FEATURED_PRODUCTS_SUCCESS , payload : response.data.slice(0,5)})
         }).catch((error)=>{
             console.log(error)
         })

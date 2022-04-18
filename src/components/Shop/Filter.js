@@ -20,14 +20,14 @@ function Filter () {
 export default Filter 
 
 const Wrapper = styled.div`
-    ${'' /* background-color: brown; */}
+
     flex: 3;
 
-    position: sticky;
-    top: 10px;
-    
     .filter {
         flex: 3;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
     }
     
 `

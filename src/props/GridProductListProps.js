@@ -48,6 +48,11 @@ const Wrapper = styled.div`
 
     .name {
         color: #102A42;
+
+        p {
+            text-transform: capitalize;
+            font-size: 0.9rem;
+        }
     }
 
     .price {
