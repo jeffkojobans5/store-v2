@@ -12,7 +12,7 @@ function GridProductListProps ( {image , name , price } ) {
                     <p> {name} </p>
                 </div>
                 <div className="price">
-                    <p> { price} </p>
+                    <p> $ { price} </p>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@ function GridProductListProps ( {image , name , price } ) {
 const Wrapper = styled.div`
     width: 32%;
     height: auto;
-    margin-top: 1.2rem;
+    margin-top: 2rem;
 
     .product-image {
         height: 175px;
@@ -44,6 +44,7 @@ const Wrapper = styled.div`
 
     .name-price {
         display: flex;
+        margin-top: 0.5rem;
     }
 
     .name {
@@ -60,6 +61,7 @@ const Wrapper = styled.div`
 
         p {
             float: right;
+            font-size: 0.9rem;
         }        
     }
 

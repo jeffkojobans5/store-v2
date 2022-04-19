@@ -1,5 +1,7 @@
 import { createStore } from 'redux';
-import { reducer } from './reducers/index'
+import { reducers } from './reducers/index'
 
-export const store = createStore(reducer)
+const store = createStore(reducers)
+
+export default store
 

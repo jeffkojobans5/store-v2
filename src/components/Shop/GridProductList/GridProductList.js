@@ -32,13 +32,12 @@ function GridProductList () {
            { products.map((single_product)=>{
                const { image , price , name } = single_product
                return (
-                   <GridProductListProps image = { image } price = { price } name = { name } />
+                   <GridProductListProps image = { image } price = { price.toLocaleString('en-US', {minimumFractionDigits: 2}) } name = { name } />
                )
            }) }
         </>
     )
 }
-
 
 export default GridProductList
 

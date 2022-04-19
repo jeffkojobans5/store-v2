@@ -11,7 +11,7 @@ function FeaturedProducts () {
     const dispatch = useDispatch();
     const products_loading = useSelector((state)=>state.products_loading)
     const featuredProd = useSelector((state)=>state.featured_products)
-
+    console.log(products_loading)
     function fetchProducts () {
         dispatch({ type : GET_FEATURED_PRODUCTS_BEGIN })
         axios.get(products_url).then((response)=>{
@@ -31,7 +31,7 @@ function FeaturedProducts () {
             <p className="heading-p"> WoodMart is a powerful eCommerce theme for WordPress. </p>
             <div className="container">
                     { products_loading ? <img src={ Loading } className="loading" alt="loading..." />
-  :
+                    :
                     <>
                         { featuredProd.length > 1  ? 
                         <section className="featured">
