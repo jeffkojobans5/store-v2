@@ -6,10 +6,8 @@ import {
     GET_SHOP_PRODUCTS_BEGIN,    
     GET_SHOP_PRODUCTS_SUCCESS,
     
-    SEARCH_FILTER,
-    COMPANY_FILTER,
-    CATEGORY_FILTER,
-    CATEGORY_FILTER_ALL
+    FILTER_UPDATE,
+    PRODUCTS_FILTER,
     
 } from '../actions/actions'
 
@@ -27,9 +25,7 @@ let data = {
         colors: "All",
         price : 310000,
         shipping: false,
-    },
-    
-    filtered_products : [],
+    },    
 }
 
 function productReducer ( state = data , { type , payload} ) {
@@ -49,21 +45,37 @@ function productReducer ( state = data , { type , payload} ) {
         return { ...state , products_loading : false ,  products : payload , filtered_products : payload , all_products : payload }
     }
 
-    // Filter Search
-    if(type === SEARCH_FILTER ) {    
-         const { value , copy_filtered_products } = payload
-        return { ...state , filters : { ...state.filters , search : value } , products : copy_filtered_products }
+    if(type === FILTER_UPDATE ) {    
+        const {name , value } = payload
+
+        if( name === "search") {
+            return { ...state , filters : { ...state.filters , [name] : value } }            
+        }
+
+        if( name === "category") {
+            return { ...state , filters : { ...state.filters , [name] : value } }            
+        }
     }
 
-    // Filter Company
-    if(type === CATEGORY_FILTER ) {    
-        const { selectCategory , copy_filteredCategory } = payload
-        return { ...state , filters : { ...state.filters , category : selectCategory } , products : copy_filteredCategory }
-    }
+    if(type === PRODUCTS_FILTER ) {
+        const { all_products } = state
+        const { search, category } = state.filters
+        let tempProducts = [...all_products]
+        
+        if (search) {
+          tempProducts = tempProducts.filter(product => {
+            let name = product.name.toLowerCase().trim();
+            return name.includes(search) ? product : null;
+          });            
+        }
 
-    if(type === CATEGORY_FILTER_ALL) {
-        const { selectCategory , copy_filteredCategory } = payload
-        return { ...state , filters : { ...state.filters , category : selectCategory } , products : copy_filteredCategory }
+        if (category !== 'all') {
+          tempProducts = tempProducts.filter(
+            (product) => product.category === category
+          )
+        }   
+        
+        return { ...state, products: tempProducts }        
     }
 
     return state;
