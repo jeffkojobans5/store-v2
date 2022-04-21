@@ -9,13 +9,10 @@ export function Search () {
         
     const { search  } = filters
     
-   // BCCNKTXE
-    
    function searchFilter(e) {
             const name = e.target.name ;
             const value = e.target.value ;
             dispatch({ type : FILTER_UPDATE , payload : { name , value }})
-            console.log(filters)
         }
 
         useEffect(()=>{

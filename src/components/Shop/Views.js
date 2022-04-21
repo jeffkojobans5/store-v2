@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import { BsFillGridFill } from 'react-icons/bs'
 import { AiOutlineBars } from 'react-icons/ai'
+import { useSelector , useDispatch } from 'react-redux';
 
 export function Views () {
+    const dispatch = useDispatch();
+    let productsLength = useSelector((state)=>state.products.length)
+
     return (
         <Wrapper>
             <section>
@@ -10,7 +14,7 @@ export function Views () {
                   <AiOutlineBars />
             </section>
             <section>
-                23 Products 
+                { productsLength + " Products"}
             </section>
             <section>
                 <div className="box"></div>

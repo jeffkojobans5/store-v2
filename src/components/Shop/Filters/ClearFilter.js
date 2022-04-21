@@ -1,11 +1,18 @@
 import styled from 'styled-components'
+import { CLEAR_FILTERS } from '../../../redux/actions/actions'
+import { useSelector , useDispatch } from 'react-redux';
 
 export function ClearFilter () {
+    const dispatch = useDispatch();
+    function clearFilters () {
+        dispatch({ type : CLEAR_FILTERS })          
+    }
+    
     return (
     
     <Wrapper>
         <p className="filter-header-text">  </p>    
-        <button type="submit" className="clear-btn"> Clear Filters </button>
+        <button type="submit" className="clear-btn" onClick = { ()=>clearFilters()} > Clear Filters </button>
     </Wrapper>        
     )
 }

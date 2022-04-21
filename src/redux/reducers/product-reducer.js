@@ -8,22 +8,24 @@ import {
     
     FILTER_UPDATE,
     PRODUCTS_FILTER,
+    CLEAR_FILTERS,
     
 } from '../actions/actions'
 
 let data = {
     featured_products : [],
     products: [],
-    products_loading : 'false',
+    products_loading : false,
     products_error : false,
     all_products: [],
+    max_price: 0,
 
     filters : {
         search : "",
         category : "all",
-        comp: "All",
-        colors: "All",
-        price : 310000,
+        company: "all",
+        colors: "all",
+        price : 0,
         shipping: false,
     },    
 }
@@ -42,7 +44,8 @@ function productReducer ( state = data , { type , payload} ) {
     }    
 
     if(type === GET_SHOP_PRODUCTS_SUCCESS) {
-        return { ...state , products_loading : false ,  products : payload , filtered_products : payload , all_products : payload }
+         const { highestPrice , res  } = payload
+        return { ...state , products_loading : false ,  products : res , filtered_products : res , all_products : res , filters : { ...state.filters , price : highestPrice } , max_price : highestPrice }
     }
 
     if(type === FILTER_UPDATE ) {    
@@ -55,11 +58,28 @@ function productReducer ( state = data , { type , payload} ) {
         if( name === "category") {
             return { ...state , filters : { ...state.filters , [name] : value } }            
         }
+
+        if( name === "company" ) {
+            return { ...state , filters : { ...state.filters , [name] : value } }                        
+        }
+
+        if( name === "colors") {
+            return { ...state , filters : { ...state.filters , [name] : value } }                                    
+        }
+
+
+        if( name === "price") {
+            return { ...state , filters : { ...state.filters , [name] : value } }                                    
+        }        
+
+        if( name === "shipping") {
+            return { ...state , filters : { ...state.filters , [name] : value } }                                    
+        }        
     }
 
     if(type === PRODUCTS_FILTER ) {
         const { all_products } = state
-        const { search, category } = state.filters
+        const { search, category , company , colors , price , shipping} = state.filters
         let tempProducts = [...all_products]
         
         if (search) {
@@ -74,9 +94,39 @@ function productReducer ( state = data , { type , payload} ) {
             (product) => product.category === category
           )
         }   
+
+        if (company !== 'all') {
+            tempProducts = tempProducts.filter(item => item.company === company);
+        }
         
+        if (colors !== 'all') {
+            tempProducts = tempProducts.filter(item => item.colors.indexOf(colors) != -1);
+        }
+
+        tempProducts = tempProducts.filter((product) => product.price <= price)
+
+        if (shipping) {
+            tempProducts = tempProducts.filter((product) => product.shipping === true)
+          }
+
         return { ...state, products: tempProducts }        
     }
+
+
+        if (type === CLEAR_FILTERS) {
+            return {
+                ...state,
+                filters: {
+                  ...state.filters,
+                  search: '',
+                  company: 'all',
+                  category: 'all',
+                  colors: 'all',
+                  price: state.max_price,
+                  shipping: false,
+                },
+              }
+        }
 
     return state;
 }

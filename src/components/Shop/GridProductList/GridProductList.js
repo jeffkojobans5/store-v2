@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux';
 import { GET_SHOP_PRODUCTS_SUCCESS , GET_SHOP_PRODUCTS_BEGIN } from '../../../redux/actions/actions'
@@ -10,14 +9,23 @@ import { GridProductListProps } from '../../../props/index'
 
 function GridProductList () {
     const dispatch = useDispatch();
-    const products_loading = useSelector((state)=>state.products_loading)
     const products = useSelector((state)=>state.products)
     
 
     function fetchProducts () {
         dispatch({ type : GET_SHOP_PRODUCTS_BEGIN })
         axios.get(products_url).then((response)=>{
-            dispatch({ type : GET_SHOP_PRODUCTS_SUCCESS , payload : response.data.slice(0,18) })
+            let res = response.data
+            let copyPayload = [...response.data]
+            let getAllPrice = []            
+            for (const price in copyPayload) {
+                getAllPrice.push(copyPayload[price].price)
+            }       
+
+            let sortPrices = getAllPrice.sort((a , b) => b - a )
+            let highestPrice = sortPrices[0]
+
+            dispatch({ type : GET_SHOP_PRODUCTS_SUCCESS , payload : { highestPrice , res }   })
         }).catch((error)=>{
             console.log(error)
         })

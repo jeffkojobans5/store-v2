@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux';
-import { CATEGORY_FILTER , PRODUCTS_FILTER , FILTER_UPDATE} from '../../../redux/actions/actions'
+import { PRODUCTS_FILTER , FILTER_UPDATE} from '../../../redux/actions/actions'
 
 export function Category () {
     const dispatch = useDispatch();
@@ -17,20 +17,19 @@ export function Category () {
         let name = e.target.name
         let value = e.target.innerHTML
         dispatch({ type : FILTER_UPDATE , payload : { name , value  } })   
-        console.log(filters)
-    }   
+    }  
     
     useEffect(()=>{
-        dispatch({ type : PRODUCTS_FILTER })           
+        dispatch({ type : PRODUCTS_FILTER })  
     },[filters])
 
     return (
     <Wrapper>
         <p className="filter-header-text"> Category </p>
             <div className="category-button">
-                { uniqueCategory.map((product , index )=>{
+                { uniqueCategory.map((product)=>{
                     return (
-                        <button type="button" name="category" className={ filters.category === product ? 'active' : null}    active onClick={ (e)=>filterCategory(e) }>{product}</button>
+                        <button key={product} type="button" name="category" className={ filters.category === product ? 'active' : null}    active onClick={ (e)=>filterCategory(e) }>{product}</button>
                     )
                 }) }
             </div>        
