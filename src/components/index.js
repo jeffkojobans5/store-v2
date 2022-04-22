@@ -22,6 +22,7 @@ import { Views } from './Shop/Views'
 
 
 import  GridProductList  from './Shop/GridProductList/GridProductList'
+import  ListProductView  from './Shop/ListProductView/ListProductView'
 
 
 export { 
@@ -43,5 +44,6 @@ export {
     FreeShipping,
     Price,
     Views,
-    GridProductList 
+    GridProductList,
+    ListProductView 
 }

@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { useEffect } from 'react'
+import { SORT_PRODUCTS , UPDATE_SORT } from '../../redux/actions/actions'
 import { BsFillGridFill } from 'react-icons/bs'
 import { AiOutlineBars } from 'react-icons/ai'
 import { useSelector , useDispatch } from 'react-redux';
@@ -6,6 +8,18 @@ import { useSelector , useDispatch } from 'react-redux';
 export function Views () {
     const dispatch = useDispatch();
     let productsLength = useSelector((state)=>state.products.length)
+    let sort = useSelector((state)=>state.sort)
+
+    function sortProduct (e) {
+        let name = e.target.name
+        let value = e.target.value       
+        console.log(sort) 
+        dispatch({ type : UPDATE_SORT , payload : { name , value }   })
+    }
+
+    useEffect(()=>{
+        dispatch({ type : SORT_PRODUCTS })  
+    },[sort])
 
     return (
         <Wrapper>
@@ -21,11 +35,11 @@ export function Views () {
             </section>
             <section>
                 <label> Sort By </label>
-                <select name="" id="">
-                    <option value="">Price Lowest</option>
-                    <option value="">Price Highest</option>
-                    <option value="">Name (A - Z)</option>
-                    <option value="">Name (Z - A)</option>
+                <select name="sort" id="" onChange = { (e)=>sortProduct(e)} >
+                    <option value="price-low">Price Lowest</option>
+                    <option value="price-high">Price Highest</option>
+                    <option value="name-asc">Name (A - Z)</option>
+                    <option value="name-desc">Name (Z - A)</option>
                 </select>
             </section>
         </Wrapper>

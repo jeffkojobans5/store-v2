@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Views , GridProductList } from '../index'
+import { Views , GridProductList , ListProductView } from '../index'
 
 function ProductsList () {
     return (
@@ -7,7 +7,7 @@ function ProductsList () {
             <div className="ProductsList">
                 <Views />
                 <section>
-                    <GridProductList />
+                    <ListProductView />
                 </section>
             </div>
         </Wrapper>            

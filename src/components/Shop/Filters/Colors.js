@@ -37,7 +37,7 @@ export function Colors () {
             return (
                 <section key={color}>
                     <div className="filter-color">
-                        { color === 'all' ? <p className={ filters.colors == color ? 'active' : null} id="colors" onClick = { (e)=>filterColors(e , color ) }> All </p> : "" } { color !== 'all' ? <p style={{ backgroundColor: color }} id="colors" className={ filters.colors === color ? 'active' : null} onClick = { (e)=>filterColors(e , color ) }> <span id="colors" className={ filters.colors == color ? 'active plus-sign' : 'plus-sign'} > + </span></p>  : "" }   
+                        { color === 'all' ? <p className={ filters.colors == color ? 'active' : null} id="colors" onClick = { (e)=>filterColors(e , color ) }> All </p> : "" } { color !== 'all' ? <p style={{ backgroundColor: color }} id="colors" className={ filters.colors === color ? 'active' : null} onClick = { (e)=>filterColors(e , color ) }> <span id="colors" className={ filters.colors == color ? 'active plus-sign' : 'plus-sign'} > &#10003; </span></p>  : "" }   
                     </div>
                     <div className="filter-color-name">
                         {/* <p> { color } </p> */}

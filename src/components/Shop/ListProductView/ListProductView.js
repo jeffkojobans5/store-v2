@@ -5,9 +5,9 @@ import { products_url } from '../../../helpers/constants/constants';
 import axios from 'axios';
 
 // props
-import { GridProductListProps } from '../../../props/index'
+import { ListProductViewProps } from '../../../props/index'
 
-function GridProductList () {
+function ListProductView () {
     const dispatch = useDispatch();
     const products = useSelector((state)=>state.products)
     
@@ -38,14 +38,14 @@ function GridProductList () {
     return (
         <>
            { products.map((single_product)=>{
-               const { image , price , name } = single_product
+               const { image , price , name , description } = single_product
                return (
-                   <GridProductListProps key={image} image = { image } price = { price.toLocaleString('en-US', {minimumFractionDigits: 2}) } name = { name } />
+                   <ListProductViewProps key={image} image = { image } price = { price.toLocaleString('en-US', {minimumFractionDigits: 2}) } name = { name } short_description = {description} />
                )
            }) }
         </>
     )
 }
 
-export default GridProductList
+export default ListProductView
 

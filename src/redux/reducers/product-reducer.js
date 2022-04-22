@@ -9,6 +9,9 @@ import {
     FILTER_UPDATE,
     PRODUCTS_FILTER,
     CLEAR_FILTERS,
+
+    SORT_PRODUCTS , 
+    UPDATE_SORT    
     
 } from '../actions/actions'
 
@@ -28,6 +31,8 @@ let data = {
         price : 0,
         shipping: false,
     },    
+
+    sort : 'asc'
 }
 
 function productReducer ( state = data , { type , payload} ) {
@@ -124,8 +129,40 @@ function productReducer ( state = data , { type , payload} ) {
                   colors: 'all',
                   price: state.max_price,
                   shipping: false,
-                },
+                }
               }
+        }
+
+        if (type === UPDATE_SORT) {
+             const { value } = payload
+            return { ...state , sort : value }                                    
+        }
+
+        if (type === SORT_PRODUCTS) {
+            const { sort , all_products} = state
+            let tempProducts = [...all_products]
+
+            if ( sort === 'price-low') {
+                tempProducts = tempProducts.sort((a , b) => {
+                    return a.price - b.price
+                })                  
+            }
+
+            if ( sort === 'price-high') {
+                tempProducts = tempProducts.sort((a , b) => {
+                    return b.price - a.price
+                })                  
+            }
+            
+            if ( sort === 'name-asc') {
+                tempProducts = tempProducts.sort((a, b) => a.name.localeCompare(b.name))                  
+            }     
+            
+            if ( sort === 'name-desc') {
+                tempProducts = tempProducts.sort((a, b) => b.name.localeCompare(a.name))
+            }            
+            
+            return { ...state , products : tempProducts}
         }
 
     return state;

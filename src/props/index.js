@@ -1,4 +1,5 @@
 import  GridProductListProps  from './GridProductListProps'
+import  ListProductViewProps  from './ListProductViewProps'
 
 
-export { GridProductListProps }
+export { GridProductListProps , ListProductViewProps }
