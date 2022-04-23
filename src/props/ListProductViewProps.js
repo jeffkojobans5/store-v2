@@ -25,7 +25,6 @@ const Wrapper = styled.div`
 
     .list-products {
         display: flex;
-        ${'' /* background-color: whitesmoke; */}
         padding: 1rem;
         border-radius: 5px;
         transition: 0.2s all;
