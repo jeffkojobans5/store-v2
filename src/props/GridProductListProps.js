@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     width: 32%;
     height: auto;
     margin-top: 2rem;
+    ${'' /* margin-top: 2rem; */}
 
     .product-image {
         height: 175px;
