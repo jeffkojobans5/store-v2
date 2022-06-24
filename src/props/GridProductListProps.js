@@ -69,6 +69,15 @@ const Wrapper = styled.div`
     .name , .price {
         flex: 1;
     }
+
+    @media only screen and (max-width: 800px) {
+        width: 47%;
+    }
+
+    @media only screen and (max-width: 400px) {
+        width: 100%;
+    }    
+
 `
 
 export default GridProductListProps

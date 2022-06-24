@@ -1,13 +1,19 @@
 import styled from 'styled-components'
 import { Views , GridProductList , ListProductView } from '../index'
+import { useSelector , useDispatch } from 'react-redux';
 
 function ProductsList () {
+
+    let grid_list = useSelector((state)=>state.grid_list)
+
     return (
         <Wrapper>
             <div className="ProductsList">
                 <Views />
                 <section>
-                    <ListProductView />
+                    { !grid_list ?
+                        <ListProductView /> : <GridProductList />
+                    }
                 </section>
             </div>
         </Wrapper>            
@@ -26,7 +32,15 @@ const Wrapper = styled.div`
     section {
         display: flex;   
         justify-content: space-between;
-        flex-wrap : wrap     
+        flex-wrap : wrap;
+        max-width: 100%;    
     }
 
+
+    @media only screen and (max-width: 800px){
+        section {
+            flex-wrap: wrap;
+            max-width: 100%;
+        }
+    }  
 `

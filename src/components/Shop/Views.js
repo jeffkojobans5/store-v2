@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useEffect } from 'react'
-import { SORT_PRODUCTS , UPDATE_SORT } from '../../redux/actions/actions'
+import { SORT_PRODUCTS , UPDATE_SORT , GRID_LIST } from '../../redux/actions/actions'
 import { BsFillGridFill } from 'react-icons/bs'
 import { AiOutlineBars } from 'react-icons/ai'
 import { useSelector , useDispatch } from 'react-redux';
@@ -13,8 +13,11 @@ export function Views () {
     function sortProduct (e) {
         let name = e.target.name
         let value = e.target.value       
-        console.log(sort) 
         dispatch({ type : UPDATE_SORT , payload : { name , value }   })
+    }
+
+    function checkGridList () {
+        dispatch({ type : GRID_LIST   })        
     }
 
     useEffect(()=>{
@@ -24,8 +27,8 @@ export function Views () {
     return (
         <Wrapper>
             <section>
-                  <BsFillGridFill />  
-                  <AiOutlineBars />
+                  <BsFillGridFill onClick={ ()=>checkGridList() }/>  
+                  <AiOutlineBars onClick={ ()=>checkGridList() }/>
             </section>
             <section>
                 { productsLength + " Products"}
@@ -54,8 +57,10 @@ const Wrapper = styled.div`
         
         svg {
             position: relative;
-            top: 5px;
+            top: 0px;
             padding-right: .5rem;
+            height: 25px;
+            width: 25px
         }
     }
 
@@ -92,6 +97,11 @@ const Wrapper = styled.div`
         }
     }    
 
+    @media only screen and (max-width: 800px){
+        svg {
+            top: 10px !important;
+        }
+    }
 
 
 `

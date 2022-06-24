@@ -32,7 +32,6 @@ const Wrapper = styled.div`
 
     .list-products:hover {
         background-color: whitesmoke;
-
     }
 
     .image {
@@ -93,6 +92,41 @@ const Wrapper = styled.div`
             padding-right: 0.7rem;
         }
     }
+
+
+
+    @media only screen and (max-width: 684px) {
+        max-width: 100%;
+
+        .list-products {
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+    .image {
+        max-width: 100%;
+        margin-right: 2rem;
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            transition: .7s all;
+        }
+    }
+
+
+    .list-products {
+        display: flex;
+        padding: 1rem;
+        border-radius: 5px;
+        transition: 0.2s all;
+        width: 90%;
+    }           
+    }
+
+
 `
 
 export default ListProductViewProps

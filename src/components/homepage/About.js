@@ -16,8 +16,8 @@ function About () {
             </div>
             <div className="container about">
                 <AboutBox title = "Mission" text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur reprehenderit non aliquam voluptates dolore aut vero consequuntur." />
-                <AboutBox title = "Mission" text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur reprehenderit non aliquam voluptates dolore aut vero consequuntur." />
-                <AboutBox title = "Mission" text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur reprehenderit non aliquam voluptates dolore aut vero consequuntur." />
+                <AboutBox title = "Vision" text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur reprehenderit non aliquam voluptates dolore aut vero consequuntur." />
+                <AboutBox title = "About" text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur reprehenderit non aliquam voluptates dolore aut vero consequuntur." />
             </div>
         </Wrapper>
     )
@@ -62,6 +62,13 @@ const Wrapper = styled.div`
         padding: 2rem;
         background-color: #C5A491;
     }
+
+
+        @media only screen and (max-width: 800px) {
+            .container {
+                flex-direction: column;
+            }        
+        }    
 `
 
 export default About 

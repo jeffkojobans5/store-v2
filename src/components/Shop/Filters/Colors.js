@@ -13,8 +13,6 @@ export function Colors () {
     },''); 
     
     let newColorSet = [ 'all' , ...new Set (allColors) ]
-    console.log(newColorSet)
-
 
     function filterColors (e , color ) {
         let name = e.target.id
@@ -25,7 +23,6 @@ export function Colors () {
     
     useEffect(()=>{
         dispatch({ type : PRODUCTS_FILTER })  
-        console.log(all_products)         
     },[filters])
 
     return (

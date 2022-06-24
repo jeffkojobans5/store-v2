@@ -29,5 +29,9 @@ const Wrapper = styled.div`
         position: sticky;
         top: 20px;
     }
+
+    @media only screen and (max-width: 800px){
+        display: none
+    }
     
 `

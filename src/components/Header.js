@@ -98,4 +98,13 @@ const Wrapper = styled.div`
         }
     }
 
+        @media only screen and (max-width: 800px) {
+            .social-media , .navbar {
+                display: none;
+            }
+
+            .logo img {
+                    float:left;
+            }
+        }
 `

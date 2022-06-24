@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Header , Banner , Filter , ProductsList } from '../components/index'
+import { Header , Footer , Banner , Filter , ProductsList } from '../components/index'
 
 function Shop () {
     return (
@@ -13,6 +13,7 @@ function Shop () {
                     <ProductsList />
                 </div>
             </section>
+            <Footer />
         </Wrapper>
     )
 }
@@ -28,6 +29,8 @@ const Wrapper = styled.div`
     .shop-section {
         margin-bottom: 5rem;
     }
+
+
     
 `
 export default Shop

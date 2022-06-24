@@ -68,5 +68,26 @@ const Wrapper = styled.div`
         color: #AB7A5F
     }
 
+
+
+        @media only screen and (max-width: 800px) {
+            .container {
+                flex-direction: column;
+            }
+
+
+            section:first-child h1 {
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+
+            section {
+                margin-top: 2rem;
+            }
+
+            section:first-child {
+                padding-right: 0rem;
+            }            
+        }
 `
 export default HomepageBanner;

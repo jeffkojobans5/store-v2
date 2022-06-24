@@ -25,11 +25,11 @@ export const navbar_links = [
         name : 'Home',
         link : '/'
     },
-    {
-        id : 2,
-        name : 'About',
-        link : '/about'
-    },    
+    // {
+    //     id : 2,
+    //     name : 'About',
+    //     link : '/about'
+    // },    
     {
         id : 3,
         name : 'Shop',
@@ -38,7 +38,7 @@ export const navbar_links = [
     {
         id : 4,
         name : 'Contact',
-        link : '/contact'
+        link : '/'
     },       
 ]
 

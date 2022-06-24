@@ -5,7 +5,7 @@ function Footer () {
     return (
         <Wrapper>
             <div className="container">
-                <p>© 2022  <span className="comfy"> ComfySloth </span> All rights reserved</p>
+                <p>© 2022  <span className="comfy"> Furnimart </span> All rights reserved</p>
             </div>
         </Wrapper>
     )
@@ -26,6 +26,12 @@ const Wrapper = styled.div`
     .comfy {
         color: #C5A491;
         word-spacing: 1rem;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .comfy {
+            display: block;
+        }
     }
 `
 

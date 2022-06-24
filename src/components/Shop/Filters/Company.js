@@ -17,7 +17,6 @@ export function Company () {
     function filterCompany (e) {
         let name = e.target.name
         let value = e.target.value
-        console.log(filters)
         dispatch({ type : FILTER_UPDATE , payload : { name , value  } })   
     }   
     

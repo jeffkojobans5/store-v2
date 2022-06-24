@@ -11,7 +11,6 @@ export function Price () {
     function filterPrice (e) {
         let name = e.target.name
         let value = e.target.value
-        console.log( name , value )
         dispatch({ type : FILTER_UPDATE , payload : { name , value  } })          
     }
 

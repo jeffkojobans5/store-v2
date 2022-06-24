@@ -11,7 +11,9 @@ import {
     CLEAR_FILTERS,
 
     SORT_PRODUCTS , 
-    UPDATE_SORT    
+    UPDATE_SORT,
+
+    GRID_LIST    
     
 } from '../actions/actions'
 
@@ -22,6 +24,7 @@ let data = {
     products_error : false,
     all_products: [],
     max_price: 0,
+    grid_list: true,
 
     filters : {
         search : "",
@@ -163,6 +166,11 @@ function productReducer ( state = data , { type , payload} ) {
             }            
             
             return { ...state , products : tempProducts}
+        }
+
+
+        if(type === GRID_LIST) {
+            return { ...state , grid_list : !state.grid_list }
         }
 
     return state;

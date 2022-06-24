@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 
     input {
         width: 60%;
-        height: 2rem;
+        height: 3rem;
         padding: 0.3rem;
         outline: none;
     }
@@ -62,5 +62,27 @@ const Wrapper = styled.div`
         background-color: #C5A491;
         ${'' /* font-size: 1rem; */}
     }
+
+
+        @media only screen and (max-width: 800px) {
+            .container {
+                flex-direction: column;
+            }
+
+            button {
+                height: 3rem;
+            }
+
+            section:nth-child(2) {
+                margin-top: 2rem;
+                justify-content: start;
+                align-items: center;        
+            }   
+
+            input {
+                width: 70%;
+            }                   
+        }    
+
 `
 
